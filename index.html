@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>  
+<html lang="pt-br">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="Chat Comercial" content="Chat Comercial">  
+    <title>Chat Comercial</title>  
+    <style>  
+      
+    body {  
+        font-family: Arial, sans-serif;  
+        background-color: #000000;  
+        margin: 0;  
+        padding: 0px;  
+    }  
+
+    header {  
+        background-color: #525252;
+     font-family: unset;
+     text-align: center;  
+     margin:0px; 
+    }  
+
+    h1 {  
+        color: #000000;  
+    }  
+
+    h3 {  
+        margin: 5px 0;  
+    }  
+
+    .voce {  
+        color: rgb(2, 134, 19); 
+        
+    }  
+
+    .Atendentea {  
+        color: rgb(201, 201, 201); }
+
+    .mensagens{  
+        background-color: rgb(2, 134, 19);  
+        border-radius: 10px;  
+        padding: 10px;  
+        margin: 5px 0px;  
+        max-width: 60%; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);  
+    }  
+    .mensagens11 {
+        background-color: rgb(255, 255, 255);  
+        border-radius: 10px;  
+        padding: 10px;  
+        margin: 5px 0;  
+        max-width: 285px; 
+        box-shadow: 0 0px 0px rgba(219, 0, 0, 0.2);  }
+    
+
+    .Digitavel {  
+        width: calc(100% - 100px);  
+        padding: 10px;  
+        border-radius: 5px;  
+        border: 1px solid #ccc;  
+        margin-right: 5px;  
+    }  
+
+    .botao {  
+        padding: 10px 20px;  
+        border-radius: 5px;  
+        border: none;  
+        background-color: rgb(2, 134, 19);  
+        color: white;  
+        cursor: pointer;  
+        transition: background-color 0.3s;  
+    }  
+
+    .botao:hover {  
+        background-color: rgb(2, 134, 19);   
+    }  
+
+    form {  
+        display: flex; 
+        margin-top: 20px;  
+    }  
+    .mensagem{
+display:flex;
+flex-direction: column;
+align-items: flex-end;
+
+
+    }
+</style>
+    </style>  
+</head>  
+<body>  
+    <header>
+        <img src="" alt="">
+        <h1>Agendamento <div></div>Cechinel Auto Parts</h1>
+    </header>  
+
+    <div class="lista">
+        <div class="mensagem">
+            <h3 class="voce">Você:</h3>
+            <p class="mensagens">Olá, boa tarde!</p>  
+        </div>
+        
+        <div>
+            <h3 class="Atendentea">Atendente:</h3>  
+            <p class="mensagens11">Olá, boa tarde! Em que posso ajudá-lo?</p>
+        </div>  
+        
+        <div class="mensagem">>
+            <h3 class="voce">Você:</h3>
+            <p class="mensagens">Quero agendar uma revisão em meu carro.</p>
+        </div> 
+    
+        <div>
+            <h3 class="Atendentea">Atendente:</h3>  
+            <p class="mensagens11">Ótimo! Marcado para amanhã às 13:30.</p> 
+        </div> 
+    
+        <div class="mensagem">
+            <h3 class="voce">Você:</h3>  
+            <p class="mensagens">Ok, muito obrigado.</p>  
+        </div>
+    </div>
+
+    <form id="formItem">  
+        <input class="Digitavel" rows="1" placeholder="Digite sua mensagem..."></input>  
+        <button class="botao">Enviar</button>  
+    </form>  
+
+    <script>
+      const Digitavel = document.querySelector(".Digitavel");
+      const formItem = document.querySelector("#formItem");
+     
+      function adicionaItem() {
+        const Mensagem = Digitavel.value;
+        
+       // <div class="mensagem"></div>
+        const div = document.createElement("div");
+        div.classList.add("mensagem");
+        div.innerHTML = `<h3 class="voce">Você:</h3>  
+            <p class="mensagens">${Mensagem}</p>`;
+
+        const lista = document.querySelector(".lista");
+        lista.appendChild(div);
+
+        Digitavel.value = "";
+      }
+
+      formItem.addEventListener("submit", function (event) {
+        event.preventDefault();
+        adicionaItem();
+      });
+    </script>
+</body>  
+</html>
